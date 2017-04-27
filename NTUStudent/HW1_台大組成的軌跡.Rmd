@@ -1,0 +1,38 @@
+---
+title: "HW1_台大人組成的軌跡"
+author: "R05631012_蔡雨錡"
+date: "March 1, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 故事緣起
+
+台大人從 1945 年至 2015 年之間的學生組成變化
+資料來源：台大主計室  http://acct2015.cc.ntu.edu.tw 
+
+```{r}
+rm(list = ls(all = TRUE))
+library(png)
+library(animation)
+
+rawData = read.csv('NTUStu.csv',header = FALSE)
+#allLine = length(rawData[,1])
+#rawData = rawData[-allLine,]
+names(rawData) <- c("年度","總計","文學院","理學院","社會科學院","醫學院","工學院","農學院","管理學院","公衛學院","電資學院","法律學院","生命科學院","夜間部","進修學院")
+
+yearid=rawData[,1]
+
+for (yid in c(1:length(rawData[,1])))
+{
+  barplot(as.matrix(rawData[yid,c(-1,-2)]),
+          main = paste0("NTU Student Number total is ",rawData[yid,2]," in ",rawData[yid,1]," year"))
+}
+
+```
+
+## 關於台大人組成的軌跡
+說明文字，關於...
