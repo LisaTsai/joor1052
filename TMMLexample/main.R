@@ -1,0 +1,6 @@
+source('getRawData.R')
+id = c(1:10)
+URL = paste0("https://www.ptt.cc/bbs/ForeignEX/index", id, ".html")
+filename = paste0(id, ".txt")
+getRawData(URL[1], filename[1])
+mapply(getRawData, URL = URL, filename = filename)
