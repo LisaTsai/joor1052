@@ -1,9 +1,9 @@
+library(xml2)
 library(tmcn)
 library(rvest)
-
-#Create Function to get raw data
-getRawData <- function(URL, filename)
+pttTestFunction <- function(URL, filename)
 {
+  #URL   = "https://www.ptt.cc/bbs/NTUcourse/index.html"
   html  = read_html(URL)
   title = html_nodes(html, "a")
   href  = html_attr(title, "href")
